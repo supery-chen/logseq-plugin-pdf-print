@@ -1,0 +1,20 @@
+{
+  "name": "logseq-plugin-pdf-print",
+  "version": "0.0.1",
+  "main": "dist/index.html",
+  "logseq": {
+    "id": "superychen-logseq-plugin-pdf-print",
+    "icon": "./icon.png"
+  },
+  "scripts": {
+    "start": "wmr",
+    "build": "wmr build",
+    "serve": "wmr serve"
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.1-alpha.35"
+  },
+  "devDependencies": {
+    "wmr": "^3.7.2"
+  }
+}
