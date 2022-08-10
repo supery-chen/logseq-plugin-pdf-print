@@ -23,6 +23,10 @@ async function main() {
     div[class^="CodeMirror"] {
       overflow:hidden !important;
     }
+
+    span[class^="hide-tail"] {
+      overflow:hidden !important;
+    }
     
     .cm-s-light > div > textarea {
       display: none;
@@ -67,7 +71,7 @@ async function main() {
   `);
   logseq.App.registerUIItem("toolbar", {
     key: `logseq-plugin-pdf-print`,
-    template: `<a data-on-click="printPdf" title="print pdf" class="button"><i class="ti ti-printer"></i></a>`,
+    template: `<a data-on-click="printPdf" title="打印pdf" class="button"><i class="ti ti-printer"></i></a>`,
   });
 
   console.log("#logseq-plugin-pdf-print loaded");
