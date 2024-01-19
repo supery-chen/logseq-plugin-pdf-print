@@ -1,0 +1,67 @@
+@media print {
+    * {
+        overflow: visible !important;
+        /* Chrome, Safari 6 – 15.3, Edge */
+        -webkit-print-color-adjust: exact !important;
+        /* Firefox 48 – 96 */
+        color-adjust: exact !important;
+        /* Firefox 97+, Safari 15.4+ */
+        print-color-adjust: exact !important;
+    }
+
+    #left-sidebar,
+    #right-sidebar,
+    #head,
+    #skip-to-main,
+    #app-single-container,
+    #download,
+    .window-controls,
+    .ui__notifications,
+    .ui__modal,
+    .cp__sidebar-help-btn,
+    .references,
+    .extensions__pdf-playground,
+    div[role="region"],
+    .notifications,
+    .lazy-visibility,
+    .add-button-link-wrap,
+    .cm-s-light>div>textarea,
+    .CodeMirror-gutters,
+    .CodeMirror-linenumber {
+        display: none;
+    }
+
+    :root {
+        --ls-left-sidebar-width: 0px;
+        --ls-left-sidebar-sm-width: 0vw;
+        --ls-left-sidebar-nav-btn-size: 0px;
+    }
+
+    div[class^="CodeMirror"],
+    span[class^="hide-tail"] {
+        overflow: hidden !important;
+    }
+
+    .CodeMirror-sizer {
+        margin-left: 1px !important;
+        margin-bottom: 1px !important;
+        min-height: 10px !important;
+    }
+
+    .page {
+        page-break-after: always;
+    }
+
+    /* #logseq-tocgen--kef-tocgen-backtop {
+        display: none;
+    }
+
+    #logseq-tocgen--kef-tocgen-godown {
+        display: none;
+    }
+
+    #logseq-wrap--kef-wrap-toolbar {
+        display: none;
+    } */
+
+}
