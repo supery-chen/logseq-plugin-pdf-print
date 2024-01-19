@@ -6,7 +6,7 @@
 
 ## 示例
 
-![example](assets/example.gif)
+![example](assets/examples.gif)
 
 ## Tips
 
