@@ -9,7 +9,7 @@
         print-color-adjust: exact !important;
     }
 
-    #left-sidebar,
+    /* #left-sidebar,
     #right-sidebar,
     #head,
     #skip-to-main,
@@ -19,15 +19,20 @@
     .ui__notifications,
     .ui__modal,
     .cp__sidebar-help-btn,
-    .references,
     .extensions__pdf-playground,
     div[role="region"],
     .notifications,
-    .lazy-visibility,
+    */
     .add-button-link-wrap,
+    .references,
+    .lazy-visibility,
     .cm-s-light>div>textarea,
     .CodeMirror-gutters,
     .CodeMirror-linenumber {
+        display: none;
+    }
+
+    .print-hide {
         display: none;
     }
 
@@ -51,17 +56,5 @@
     .page {
         page-break-after: always;
     }
-
-    /* #logseq-tocgen--kef-tocgen-backtop {
-        display: none;
-    }
-
-    #logseq-tocgen--kef-tocgen-godown {
-        display: none;
-    }
-
-    #logseq-wrap--kef-wrap-toolbar {
-        display: none;
-    } */
 
 }
