@@ -57,4 +57,36 @@
         page-break-after: always;
     }
 
+    .katex .vlist>span>span {
+        display: inline-block !important;
+    }
+
+    .katex .stretchy {
+        display: block !important;
+        overflow: hidden !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .katex .brace-left {
+        left: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        width: 25.1%;
+    }
+
+    .katex .brace-center {
+        left: 25% !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        width: 50% !important;
+    }
+
+    .katex .brace-right {
+        overflow: hidden !important;
+        position: absolute !important;
+        right: 0 !important;
+        width: 25.1% !important;
+    }
+
 }
