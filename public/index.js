@@ -34,12 +34,21 @@ async function main() {
   fetch('print.css')
     .then(response => response.text())
     .then(cssContent => {
-      // console.log(cssContent);
       logseq.provideStyle(cssContent);
       logseq.App.registerUIItem("toolbar", {
         key: `logseq-plugin-pdf-print`,
         template: `<a data-on-click="printPdf" title="PDF" class="button"><i class="ti ti-printer"></i></a>`,
       });
+      logseq.useSettingsSchema([
+        {
+          default: cssContent,
+          description: "print css",
+          inputAs: "textarea",
+          key: "PrintCss",
+          title: "PrintCss",
+          type: "string"
+        }
+      ])
       console.log("#logseq-plugin-pdf-print loaded");
     })
     .catch(error => {
