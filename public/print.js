@@ -1,6 +1,3 @@
-import "@logseq/libs";
-
-const scripts = `
 // 隐藏无需打印的元素
 function hideElement(elements, excludeIds) {
     Array.from(elements)
@@ -12,21 +9,9 @@ function hideElement(elements, excludeIds) {
         });
 }
 
+// url生成二维码
+async function qrcode(url) {
 
-
-// 生成二维码
-function qrcode(id, content) {
-  const qrcodeDiv = document.getElementById(id);
-  var qrcode = new QRCode(qrcodeDiv, {
-    width: 128,
-    height: 128,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
-  qrcode.makeCode(content);
-  var svgCode = qrcodeDiv.getElementsByTagName('svg')[0].outerHTML;
-  console.log('qrcode',svgCode);
 }
 
 // 图片url转base64
@@ -83,22 +68,21 @@ function youtubeVideoThumbnails() {
                     '</svg>' +
                     '<div id="' + qrcodeId + '" style="width: 10%;position: absolute;top: 90%;left: 90%;transform: translate(-10%, -10%);"></div>';
                 iframe.parentNode.insertBefore(div, iframe);
-                qrcode(qrcodeId, iframe.src);
             })
-            // .then(function () {
-            //     var qrcodeDiv = document.getElementById(qrcodeId);
-            //     var qrcode = new QRCode(qrcodeDiv, {
-            //         width: 100 %,
-            //         height: 100 %,
-            //         colorDark: "#000000",
-            //         colorLight: "#ffffff",
-            //         correctLevel: QRCode.CorrectLevel.H
-            //     });
-            //     qrcode.makeCode(iframe.src);
-            //     var svgCode = qrcodeDiv.getElementsByTagName('svg')[0].outerHTML;
-            //     console.log(svgCode);
-            //     document.getElementById(qrcodeId).innerHTML = svgCode;
-            // })
+            .then(function () {
+                var qrcodeDiv = document.getElementById(qrcodeId);
+                var qrcode = new QRCode(qrcodeDiv, {
+                    width: 100 %,
+                    height: 100 %,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                qrcode.makeCode(iframe.src);
+                var svgCode = qrcodeDiv.getElementsByTagName('svg')[0].outerHTML;
+                console.log(svgCode);
+                document.getElementById(qrcodeId).innerHTML = svgCode;
+            })
         );
     });
     return Promise.all(promises);
@@ -126,39 +110,3 @@ youtubeVideoThumbnails()
     .catch(error => {
         console.error('Error:', error);
     });
-`
-
-const model = {
-  printPdf() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.text = scripts;
-    parent.document.body.appendChild(script);
-    parent.document.body.removeChild(script);
-  },
-};
-
-async function main() {
-  fetch('print.css')
-    .then(response => response.text())
-    .then(cssContent => {
-      logseq.provideStyle(cssContent);
-      logseq.App.registerUIItem("toolbar", {
-        key: `logseq-plugin-pdf-print`,
-        template: `<a data-on-click="printPdf" title="PDF" class="button"><i class="ti ti-printer"></i></a>`,
-      });
-
-      // 引入qrcodejs库
-      var qrcodejs = document.createElement('script');
-      qrcodejs.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
-      document.head.appendChild(qrcodejs);
-      console.log('import qrcodejs');
-
-      console.log("#logseq-plugin-pdf-print loaded");
-    })
-    .catch(error => {
-      console.error('#logseq-plugin-pdf-print load error:', error);
-    });
-}
-
-logseq.ready(model, main).catch(console.error);

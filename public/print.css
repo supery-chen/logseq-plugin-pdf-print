@@ -1,3 +1,7 @@
+.print-display {
+    display: none;
+}
+
 @media print {
     * {
         overflow: visible !important;
@@ -9,20 +13,6 @@
         print-color-adjust: exact !important;
     }
 
-    /* #left-sidebar,
-    #right-sidebar,
-    #head,
-    #skip-to-main,
-    #app-single-container,
-    #download,
-    .window-controls,
-    .ui__notifications,
-    .ui__modal,
-    .cp__sidebar-help-btn,
-    .extensions__pdf-playground,
-    div[role="region"],
-    .notifications,
-    */
     .add-button-link-wrap,
     .references,
     .lazy-visibility,
@@ -34,6 +24,10 @@
 
     .print-hide {
         display: none;
+    }
+
+    .print-display {
+        display: block;
     }
 
     :root {
@@ -87,6 +81,17 @@
         position: absolute !important;
         right: 0 !important;
         width: 25.1% !important;
+    }
+
+    iframe[id^="youtube-player-"] {
+        display: none !important;
+    }
+
+    div[id^="div-youtube-player-"] {
+        margin: 1rem 0 !important;
+        width: 100% !important;
+        display: block !important;
+        vertical-align: middle !important;
     }
 
 }
