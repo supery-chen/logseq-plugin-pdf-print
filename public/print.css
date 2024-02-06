@@ -5,24 +5,27 @@
         -webkit-print-color-adjust: exact !important;
         /* Firefox 48 – 96 */
         color-adjust: exact !important;
+        -moz-print-color-adjust: exact !important;
+        -ms-print-color-adjust: exact !important;
         /* Firefox 97+, Safari 15.4+ */
         print-color-adjust: exact !important;
     }
 
-    /* #left-sidebar,
-    #right-sidebar,
-    #head,
-    #skip-to-main,
-    #app-single-container,
-    #download,
-    .window-controls,
-    .ui__notifications,
-    .ui__modal,
-    .cp__sidebar-help-btn,
-    .extensions__pdf-playground,
-    div[role="region"],
-    .notifications,
-    */
+    html {
+        position: relative;
+    }
+
+    html::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--ls-primary-background-color) !important;
+        z-index: -1;
+    }
+
     .add-button-link-wrap,
     .references,
     .lazy-visibility,
@@ -55,6 +58,7 @@
 
     .page {
         page-break-after: always;
+        page-break-inside: avoid;
     }
 
     .katex .vlist>span>span {
